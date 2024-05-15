@@ -26,7 +26,7 @@
 
 <body>
     <!-- Div per Vue JS -->
-    <div id="app">
+    <!-- <div id="app">
         <h1>Recupera lista di email</h1>
         <label for="userNumber">Quante email vuoi?</label><br>
         <input v-model="inputValue" type="number" id="userNumber">
@@ -36,6 +36,38 @@
             <li v-for=" elemento, i in listaMail">{{listaMail[i]}}</li>
         </ul>
         <h2 v-else-if="!listaMail">Dati non arrivati</h2>
+    </div> -->
+    <div id="app">
+        <div class="bg-dark text-white text-center p-4 mb-2">
+            <h1>Crea lista utenti</h1>
+        </div>
+        <div class="container text-center mb-4">
+            <label for="userNumber">Quanti utenti vuoi generare?</label><br>
+            <input v-model="inputValue" class="mb-2" type="number" id="userNumber"><br>
+            <button v-if="!cliccato" @click="getData()" class="btn btn-dark me-2">Crea lista</button>
+            <button @click="clear()" class="btn btn-danger">Cancella lista</button>
+        </div>
+        <div v-if="listaName.length == inputValue && listaPhone.length == inputValue && listaMail.length == inputValue"
+            class="container">
+            <table class="table">
+                <thead :class="{'d-none': checkListe == false}">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="elemento, i in listaName">
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{listaName[i]}}</td>
+                        <td>{{listaPhone[i]}}</td>
+                        <td>{{listaMail[i]}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!-- My JS -->
     <script src="./js/main.js"></script>
