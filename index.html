@@ -27,10 +27,10 @@
 <body>
     <!-- Div per Vue JS -->
     <div id="app">
-        <ul>
-            <li v-for="elemento, i in listaMail">{{listaMail[i]}}</li>
+        <ul v-if="listaMail.length == 10">
+            <li v-for=" elemento, i in listaMail">{{listaMail[i]}}</li>
         </ul>
-
+        <h2 v-else-if="!listaMail">Dati non arrivati</h2>
     </div>
     <!-- My JS -->
     <script src="./js/main.js"></script>
