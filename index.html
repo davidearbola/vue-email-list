@@ -27,7 +27,12 @@
 <body>
     <!-- Div per Vue JS -->
     <div id="app">
-        <ul v-if="listaMail.length == 10">
+        <h1>Recupera lista di email</h1>
+        <label for="userNumber">Quante email vuoi?</label><br>
+        <input v-model="inputValue" type="number" id="userNumber">
+        <button @click="getData()" class="btn btn-dark ms-2">Richiedi</button>
+        <button @click="clear()" class="btn btn-danger ms-2">Annulla</button>
+        <ul class="mt-4" v-if="listaMail.length == inputValue">
             <li v-for=" elemento, i in listaMail">{{listaMail[i]}}</li>
         </ul>
         <h2 v-else-if="!listaMail">Dati non arrivati</h2>
