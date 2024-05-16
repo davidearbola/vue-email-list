@@ -47,8 +47,7 @@
             <button v-if="!cliccato" @click="getData()" class="btn btn-dark me-2">Crea lista</button>
             <button @click="clear()" class="btn btn-danger">Cancella lista</button>
         </div>
-        <div v-if="listaName.length == inputValue && listaPhone.length == inputValue && listaMail.length == inputValue"
-            class="container">
+        <div v-if="listaUser.length== inputValue" class="container">
             <table class="table">
                 <thead :class="{'d-none': checkListe == false}">
                     <tr>
@@ -59,11 +58,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="elemento, i in listaName">
+                    <tr v-for="elemento, i in listaUser">
                         <th scope="row">{{i + 1}}</th>
-                        <td>{{listaName[i]}}</td>
-                        <td>{{listaPhone[i]}}</td>
-                        <td>{{listaMail[i]}}</td>
+                        <td>{{elemento.nome}}</td>
+                        <td>{{elemento.telefono}}</td>
+                        <td>{{elemento.email}}</td>
                     </tr>
                 </tbody>
             </table>
