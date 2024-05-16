@@ -25,18 +25,6 @@
 </head>
 
 <body>
-    <!-- Div per Vue JS -->
-    <!-- <div id="app">
-        <h1>Recupera lista di email</h1>
-        <label for="userNumber">Quante email vuoi?</label><br>
-        <input v-model="inputValue" type="number" id="userNumber">
-        <button @click="getData()" class="btn btn-dark ms-2">Richiedi</button>
-        <button @click="clear()" class="btn btn-danger ms-2">Annulla</button>
-        <ul class="mt-4" v-if="listaMail.length == inputValue">
-            <li v-for=" elemento, i in listaMail">{{listaMail[i]}}</li>
-        </ul>
-        <h2 v-else-if="!listaMail">Dati non arrivati</h2>
-    </div> -->
     <div id="app">
         <div class="bg-dark text-white text-center p-4 mb-2">
             <h1>Crea lista utenti</h1>
@@ -47,7 +35,7 @@
             <button v-if="!cliccato" @click="getData()" class="btn btn-dark me-2">Crea lista</button>
             <button @click="clear()" class="btn btn-danger">Cancella lista</button>
         </div>
-        <div v-if="listaUser.length== n" class="container">
+        <div v-if="listaUser.length == n" class="container">
             <table class="table">
                 <thead :class="{'d-none': checkListe == false}">
                     <tr>
