@@ -62,29 +62,19 @@ createApp({
 		getData() {
 			this.n = this.inputValue;
 			for (let i = 0; i < this.n; i++) {
+				this.listaUser[i] = {};
 				axios.get(this.apiName).then((result) => {
-					this.dataNome = result.data.response;
+					this.listaUser[i].nome = result.data.response;
 				});
 				axios.get(this.apiPhone).then((result) => {
-					this.dataPhone = result.data.response;
+					this.listaUser[i].telefono = result.data.response;
 				});
 				axios.get(this.apiMail).then((result) => {
-					this.dataMail = result.data.response;
-					this.user = {
-						nome: this.dataNome,
-						telefono: this.dataPhone,
-						email: this.dataMail,
-					};
-					this.listaUser.push(this.user);
+					this.listaUser[i].email = result.data.response;
 				});
 				this.checkListe = true;
 				this.cliccato = true;
 				this.inputValue = "";
-				// this.listaUser.push({
-				// 	nome: dataNome.response, // qui response non funziona
-				// 	numero: dataTelefono.response,
-				// 	email: dataEmail.response,
-				// });
 			}
 		},
 	},
