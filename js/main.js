@@ -49,6 +49,7 @@ createApp({
 			dataPhone: "",
 			dataMail: "",
 			user: "",
+			n: "",
 		};
 	},
 	methods: {
@@ -59,17 +60,13 @@ createApp({
 			this.cliccato = false;
 		},
 		getData() {
-			for (let i = 0; i < this.inputValue; i++) {
+			this.n = this.inputValue;
+			for (let i = 0; i < this.n; i++) {
 				axios.get(this.apiName).then((result) => {
 					this.dataNome = result.data.response;
-					this.user = { nome: this.dataNome };
 				});
 				axios.get(this.apiPhone).then((result) => {
 					this.dataPhone = result.data.response;
-					this.user = {
-						nome: this.dataNome,
-						telefono: this.dataPhone,
-					};
 				});
 				axios.get(this.apiMail).then((result) => {
 					this.dataMail = result.data.response;
@@ -82,6 +79,7 @@ createApp({
 				});
 				this.checkListe = true;
 				this.cliccato = true;
+				this.inputValue = "";
 				// this.listaUser.push({
 				// 	nome: dataNome.response, // qui response non funziona
 				// 	numero: dataTelefono.response,
